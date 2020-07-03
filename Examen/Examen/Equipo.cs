@@ -8,13 +8,14 @@ namespace Examen
 {
     public class Equipo
     {
+        private string name;
         private List<Jugador> jugadores;
         private Entrenador entrenador;
         private Medico medico;
         private string type;        // nacional o liga
         private string nation;      //Todos los equipos(nacional o liga)pertenecen a un pais
 
-        public Equipo(List<Jugador> jugadores, Entrenador entrenador, Medico medico, string type)
+        public Equipo(string name, List<Jugador> jugadores, Entrenador entrenador, Medico medico, string type)
         {
             if (type == "nacional")
             {
@@ -39,6 +40,7 @@ namespace Examen
         public Entrenador Entrenador { get => entrenador; set => entrenador = value; }
         public Medico Medico { get => medico; set => medico = value; }
         public string Type { get => type; set => type = value; }
+        public string Name { get => name; set => name = value; }
 
         public void AgregarJugador(Jugador jugador)
         {
@@ -59,17 +61,21 @@ namespace Examen
         {
             this.medico = medico;
         }
-        public bool Enfrentamiento(Equipo equipo)   //Ver si puede jugar contra el otro equipo
+
+        public void InfoEquipo()
         {
-            if(equipo.Type == this.Type)
+            Console.WriteLine("Nombre equipo:",Name);
+            Console.WriteLine("Del tipo:",type);
+            Console.WriteLine("Conformado por:\n");
+            Console.WriteLine("Entrenador:",entrenador);
+            Console.WriteLine("Medico:",medico);
+            Console.WriteLine("Plantilla:");
+            foreach(Jugador jugador in jugadores)
             {
-                return true;
-            }
-            else
-            {
-                return false;
+                Console.WriteLine(jugador.Name,jugador.Numero);
             }
         }
+
 
     }
 }

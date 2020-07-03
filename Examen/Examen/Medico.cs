@@ -17,9 +17,15 @@ namespace Examen
         {
             jugador.Lesion = false;
         }
-        public void Evaluar()
+        public void Evaluar(List<Jugador> jugadores)
         {
-
+            foreach(Jugador jugador in jugadores)
+            {
+                if(jugador.Lesion == true)
+                {
+                    Console.WriteLine("El jugador",jugador.Name, jugador.Numero, "se encuentra lesionado");
+                }
+            }
         }
     }
 }

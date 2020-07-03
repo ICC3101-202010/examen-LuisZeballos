@@ -23,5 +23,10 @@ namespace Examen
         public int Numero { get => numero; set => numero = value; }
         public string Posicion { get => posicion; set => posicion = value; }
         public bool Lesion { get => lesion; set => lesion = value; }
+
+        public void Lesionado()
+        {
+            this.lesion = true;
+        }
     }
 }
